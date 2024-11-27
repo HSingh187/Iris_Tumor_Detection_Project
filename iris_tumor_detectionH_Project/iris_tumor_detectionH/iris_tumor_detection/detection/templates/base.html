@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Iris Tumor Eye Detector{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'detection/css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: auto;
+            font-family: 'Poppins', sans-serif;
+            color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        header {
+            background-color: transparent;
+            color: #f4f4f9;
+            padding: 1em;
+            text-align: center;
+            width: 100%;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8em;
+            color: #34efdf;
+        }
+
+        nav a {
+            color: #f4f4f9;
+            text-decoration: none;
+            margin: 0 1em;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        nav a:hover {
+            color: #b2c8ff;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            background: transparent;
+            padding: 10px 15px;
+            border-radius: 12px;
+            box-shadow: none;
+            margin-top: 10px;
+        }
+
+        .main-content {
+            margin: 2em auto;
+            padding: 1.5em;
+            max-width: 700px;
+            background-color: rgba(30, 30, 30, 0.85);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            color: #e0e0e0;
+        }
+
+        h2 {
+            color: #34efdf;
+        }
+
+        footer {
+            padding: 1em;
+            font-size: 0.9em;
+            z-index: 1;
+            text-align: center;
+            color: #b2c8ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay loop muted playsinline>
+            <source src="{% static 'detection/Videos/iris_video_bg.mp4' %}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <header>
+        <h1>Iris Tumor Eye Detector</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'upload_image' %}">Upload Image</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    {% if messages %}
+        <div class="messages">
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    <main class="main-content">
+        {% block content %}
+        <h2>Instructions for Using the Iris Tumor Eye Detector</h2>
+        <ol>
+            <li><strong>Create an Account:</strong> New users should register to create an account. Existing users can log in directly.</li>
+            <li><strong>Upload an Eye Image:</strong> After logging in, click on the "Upload Image" link to submit an eye scan image for analysis.</li>
+            <li><strong>View Detection Results:</strong> The system will analyze the image and display the results on the screen after processing.</li>
+            <li><strong>Secure Your Account:</strong> Log out after you are done to ensure your account remains secure.</li>
+        </ol>
+        {% endblock %}
+    </main>
+
+    <footer>
+        &copy; 2023 My Django Project. All rights reserved.
+    </footer>
+</body>
+</html>

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Login</h2>
+<style>
+    h2 {
+        color: #ffffff; /* White color for the heading */
+        margin-bottom: 10px; /* Reduced space below the heading */
+        text-align: center; /* Center the heading */
+    }
+
+    .login-form {
+        background: #1e1e1e; /* Dark gray form background */
+        padding: 20px; /* Reduced padding */
+        border-radius: 8px; /* Slightly rounded corners */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Softer shadow for depth */
+        width: 320px; /* Fixed width for the form */
+        text-align: left; /* Align text to the left */
+    }
+
+    .login-form label {
+        display: block; /* Block display for labels */
+        margin-bottom: 4px; /* Space below labels */
+        color: #ffffff; /* White color for labels */
+        font-weight: bold; /* Bold labels */
+    }
+
+    .login-form input {
+        width: 100%; /* Full width input */
+        padding: 10px; /* Reduced padding inside inputs */
+        margin-bottom: 15px; /* Reduced space below inputs */
+        border: 1px solid #444; /* Dark border */
+        border-radius: 5px; /* Rounded corners for inputs */
+        font-size: 14px; /* Smaller font for inputs */
+        color: #ffffff; /* White text color */
+        background-color: #333; /* Dark input background */
+        transition: border-color 0.3s; /* Smooth transition for border color */
+    }
+
+    .login-form input:focus {
+        border-color: #ffffff; /* White border on focus */
+        outline: none; /* Remove default outline */
+    }
+
+    .login-form button {
+        width: 100%; /* Full width button */
+        padding: 10px; /* Reduced padding inside button */
+        background-color: #ffffff; /* White button background */
+        color: #000000; /* Black text color */
+        border: none; /* Remove border */
+        border-radius: 5px; /* Rounded corners for button */
+        font-size: 14px; /* Smaller font for button */
+        cursor: pointer; /* Pointer cursor on hover */
+        transition: background-color 0.3s; /* Smooth transition for background color */
+    }
+
+    .login-form button:hover {
+        background-color: #e0e0e0; /* Light gray on hover */
+    }
+
+    .login-form .forgot-password {
+        text-align: center; /* Center text */
+        margin-top: 10px; /* Reduced space above */
+    }
+
+    .login-form .forgot-password a {
+        color: #ffffff; /* White link color */
+        text-decoration: none; /* Remove underline */
+    }
+
+    .login-form .forgot-password a:hover {
+        text-decoration: underline; /* Underline on hover */
+    }
+</style>
+<div class="login-form">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .container {
+        width: 80%; /* Set the width of the container */
+        margin: 0 auto; /* Center the container */
+        padding: 20px; /* Add some padding for spacing */
+        text-align: center; /* Center text alignment */
+        border: 1px solid #ccc; /* Optional: Add a border */
+        border-radius: 5px; /* Optional: Add rounded corners */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+    }
+
+    h2 {
+        font-size: 2em; /* Increase heading size */
+    }
+
+    p {
+        font-size: 1.2em; /* Adjust paragraph size */
+        margin: 20px 0; /* Add space above and below the paragraph */
+    }
+
+    a {
+        display: inline-block; /* Make link a block for better spacing */
+        padding: 10px 20px; /* Add padding to the link */
+        
+        color: white; /* Link text color */
+        text-decoration: none; /* Remove underline */
+        border-radius: 5px; /* Round corners for the link */
+    }
+
+    a:hover {
+        background-color: #0056b3; /* Change background color on hover */
+    }
+</style>
+
+<div class="container">
+    <h2>Detection Result</h2>
+    <p>{{ result }}</p>
+    <a href="{% url 'upload_image' %}">Try another image</a>
+</div>
+{% endblock %}
