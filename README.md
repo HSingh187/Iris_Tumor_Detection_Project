@@ -1,5 +1,26 @@
-# Iris_Tumor_Detection_Project
-Iris Tumor Detection Using CNN 
-This project focuses on detecting iris tumors using Convolutional Neural Networks (CNNs). The model is designed to analyze iris images and classify them as normal or indicative of a tumor. The goal is to aid in early diagnosis and improve healthcare outcomes.
+# IRIS EYE TUMOR DETECTION
 
-The Iris Tumor Detection Using CNN project utilizes a client-server architecture to provide an efficient and user-friendly solution for detecting tumors in iris images. The frontend, developed using HTML, CSS, and JavaScript, ensures an interactive and intuitive interface for users to upload images and view results. The backend, built with Django, handles data processing, user management, and seamless integration of the trained CNN model. The deep learning model, developed using TensorFlow/Keras, is designed to analyze iris images and classify them as normal or indicative of a tumor. Image preprocessing, including resizing and normalization, is performed using OpenCV to prepare the data for analysis. Visualization tools like Matplotlib and Seaborn are employed to display results and insights, enhancing the overall usability of the system. This combination of technologies ensures accurate tumor detection, scalability, and an excellent user experience.
+This project is designed to detect eye tumors in the iris using cutting-edge technologies, including *HTML, **JavaScript, **Django, and a **Convolutional Neural Network (CNN)* model for tumor classification and detection.
+
+---
+
+## FEATURES
+- *User-Friendly Interface:* Built with HTML and JavaScript for seamless interaction.
+- *Django Backend:* Handles user requests and integrates the frontend with the CNN model.
+- *AI-Powered Detection:* Utilizes a trained CNN model for accurate tumor identification.
+- *Real-Time Results:* Displays detection results with high precision and speed.
+
+---
+
+## TECH STACK
+### Frontend
+- HTML: For structuring the web pages.
+- JavaScript: For dynamic content and real-time interaction.
+
+### Backend
+- Django: For routing, handling requests, and integrating the CNN model.
+
+### AI/ML
+- CNN Model: For image processing and tumor detection. The model is trained using labeled datasets of iris images.
+
+---
